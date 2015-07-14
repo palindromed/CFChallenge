@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 #from django.views.generic import ListView, DetailView, UpdateView
 #from django.core.urlresolvers import reverse
 from django.http import Http404
@@ -15,7 +15,7 @@ def index(request):
 
 def detail(request, robot_id):
     try:
-        robot = Robot.objects.get(pk=robot_id)
+        robot = get_object_or_404(Robot, pk=robot_id)
     except Robot.DoesNotExist:
         raise Http404('That robot does not exist')
     return render(request, 'bots/detail.html', {'robot': robot})
