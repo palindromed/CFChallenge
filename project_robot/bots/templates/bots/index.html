@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Robot Awesomeness</title>
+  </head>
+  <body>
+  <h1>Welcome to BattleBots!</h1>
+
+  {% if robot_report %}
+    <ul>
+    {% for robot in robot_report %}
+        <li><a href="{% url 'bots:detail' bots.id%}">{{ bots.name }}</a></li>
+    {% endfor %}
+    </ul>
+    <button <a href=""></a>>Add a New Robot</button>
+    <button>Edit an existing Robot</button>
+    <button>Delete a Robot</button>
+  {% else %}
+    <p>No robots are available.</p>
+  {% endif %}
+</body>
+</html>
