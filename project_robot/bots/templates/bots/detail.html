@@ -10,9 +10,9 @@
     </ul>
 
 <button><a href="{% url 'bots:index' %}">Return to List of All Robots</a></button>
-<button><a href="{% url 'bots:robot_form' %}">create a new Robot</a></button>
-<button><a href="{% url 'bots:update' %}">Edit {{ robot.name }}</a></button>
-<button><a href="{% url 'bots:delete' %}">Delete {{ robot.name }}</a></button>
+<button><a href="{% url 'bots:create' %}">create a new Robot</a></button>
+<button><a href="{% url 'bots:update' robot.id%}">Edit {{ robot.name }}</a></button>
+<button><a href="{% url 'bots:delete' robot.id%}">Delete {{ robot.name }}</a></button>
 
 
 

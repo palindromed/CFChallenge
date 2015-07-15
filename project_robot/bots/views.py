@@ -6,7 +6,7 @@ from django.template import RequestContext
 
 
 from .models import Robot
-from .forms import MakeRobotForm, UpdateForm
+#from .forms import MakeRobotForm, UpdateForm
 
 
 class IndexView(ListView):
@@ -25,7 +25,7 @@ class DetailView(DetailView):
 class RobotUpdate(UpdateView):
     model = Robot
     fields = ['name', 'speed', 'battery_life', 'strength']
-    template_name_suffix = '_update_form'
+    template_name = 'bots/update.html'
 
     #def get_object(self, queryset=None):
      #   pk = self.kwargs.get(self.pk_url_kwarg)
@@ -43,9 +43,11 @@ class RobotUpdate(UpdateView):
 class DeleteRobot(DeleteView):
     model = Robot
     success_url = reverse_lazy('index')
+    template_name = 'bots/delete.html'
 
 
 class CreateRobot(CreateView):
     model = Robot
     fields = ['name', 'speed', 'battery_life', 'strength']
     success_url = reverse_lazy('index')
+    template_name = 'bots/robot_form.html'

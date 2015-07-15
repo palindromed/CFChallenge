@@ -8,7 +8,7 @@ class MakeRobotForm(forms.ModelForm):
         fields = ['name', 'speed', 'battery_life', 'strength']
 
 
-#class UpdateForm(forms.ModelForm):
-    #class Meta:
-       # model = Robot
-       # fields = ['name', 'speed', 'battery_life', 'strength']
+class UpdateForm(forms.ModelForm):
+    class Meta:
+        model = Robot
+        fields = ['name', 'speed', 'battery_life', 'strength']
