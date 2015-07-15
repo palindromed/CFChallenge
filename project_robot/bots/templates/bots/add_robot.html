@@ -1,0 +1,13 @@
+
+<h1>New Robots</h1>
+   {% block content %}
+ <h2> Add a Robot </h2>
+    <form id =" robot_form" method ="POST" action ="{% url "add_robot" %}" enctype ="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form }}
+
+    <input type ="submit" name ="submit" value ="Create Robot">
+</form>
+<p><a href="{% url 'bots:index'%}">Return to List of All Robots</a>
+{% endblock %}
