@@ -2,14 +2,11 @@
 from django.views.generic import UpdateView, ListView,\
     DetailView, CreateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.template import RequestContext
-
 
 from .models import Robot
-#from .forms import MakeRobotForm, UpdateForm
 
 
-class IndexView(ListView):
+class HomePage(ListView):
     template_name = 'bots/index.html'
     context_object_name = 'robot_report'
 
@@ -17,7 +14,7 @@ class IndexView(ListView):
         return Robot.objects.order_by('name')
 
 
-class DetailView(DetailView):
+class RobotDetail(DetailView):
     model = Robot
     template_name = 'bots/detail.html'
 
@@ -26,18 +23,7 @@ class RobotUpdate(UpdateView):
     model = Robot
     fields = ['name', 'speed', 'battery_life', 'strength']
     template_name = 'bots/update.html'
-
-    #def get_object(self, queryset=None):
-     #   pk = self.kwargs.get(self.pk_url_kwarg)
-      #  slug = self.kwargs.get(self.slug_url_kwarg)
-       # if pk is not None:
-#            queryset = queryset.filter(pk=pk)
-
- #   def form_valid(self, form):
-  #      clean = form.cleaned_data
-   #     context = {}
-    #    self.object = context.save(clean)
-     #   return super(UpdateForm, self).form_valid(form)
+    success_url = reverse_lazy('index')
 
 
 class DeleteRobot(DeleteView):

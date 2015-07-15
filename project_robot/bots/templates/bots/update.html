@@ -5,3 +5,5 @@
     {{ form.as_p }}
     <input type="submit" value="Update" />
 </form>
+<button><a href="{% url 'bots:index' %}">Return to List of All Robots</a></button>
+   <button><a href="{% url 'bots:detail' robot.id %}">return to {{ robot.name }}</a></button>
