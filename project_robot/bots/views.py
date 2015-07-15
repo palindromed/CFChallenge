@@ -1,6 +1,9 @@
-from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.views.generic import UpdateView, ListView, DetailView
+
+from django.views.generic import UpdateView, ListView,\
+    DetailView, CreateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
+
 
 from .models import Robot
 from .forms import MakeRobotForm, UpdateForm
@@ -21,34 +24,28 @@ class DetailView(DetailView):
 
 class RobotUpdate(UpdateView):
     model = Robot
-    form_class = UpdateForm
     fields = ['name', 'speed', 'battery_life', 'strength']
-    template_name = 'update.html'
-    success_url = IndexView
+    template_name_suffix = '_update_form'
 
-    def get_object(self):
-        return get_object_or_404(Robot, pk='robot_id')
+    #def get_object(self, queryset=None):
+     #   pk = self.kwargs.get(self.pk_url_kwarg)
+      #  slug = self.kwargs.get(self.slug_url_kwarg)
+       # if pk is not None:
+#            queryset = queryset.filter(pk=pk)
 
-    #get object
-    #def get_robot(self, queryset=None):
-    #    return self.request.robot
-
-    def form_valid(self, form):
-        clean = form.cleaned_data
-        context = {}
-        self.object = context.save(clean)
-        return super(RobotUpdate, self).form_valid(form)
+ #   def form_valid(self, form):
+  #      clean = form.cleaned_data
+   #     context = {}
+    #    self.object = context.save(clean)
+     #   return super(UpdateForm, self).form_valid(form)
 
 
-def add_robot(request):
-    context = RequestContext(request)
-    if request.method == 'POST':
-        form = MakeRobotForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save(commit=True)
-            return redirect('bots/index.html/')
-        else:
-            print(form.errors)
-    else:
-        form = MakeRobotForm()
-        return render_to_response('bots/add_robot.html', {'form': form}, context)
+class DeleteRobot(DeleteView):
+    model = Robot
+    success_url = reverse_lazy('index')
+
+
+class CreateRobot(CreateView):
+    model = Robot
+    fields = ['name', 'speed', 'battery_life', 'strength']
+    success_url = reverse_lazy('index')

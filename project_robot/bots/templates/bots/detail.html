@@ -1,3 +1,4 @@
+
 <title>Robot Details</title>
 <h1>Details for {{robot.name }}</h1>
 <ul>
@@ -9,12 +10,10 @@
     </ul>
 
 <button><a href="{% url 'bots:index' %}">Return to List of All Robots</a></button>
-<button><a href="{% url 'bots:add_robot' %}">create a new Robot</a></button>
+<button><a href="{% url 'bots:robot_form' %}">create a new Robot</a></button>
 <button><a href="{% url 'bots:update' %}">Edit {{ robot.name }}</a></button>
+<button><a href="{% url 'bots:delete' %}">Delete {{ robot.name }}</a></button>
 
-<!--need a form for updating existing bot, can existing values populate the form when it's rendered?-->
 
-
-<!--need a button that deletes a robot. redirect to index page on submit? maybe have a p or h tag saying the name of the bot successfully deleted or showing error msg-->
 
 

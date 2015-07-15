@@ -1,0 +1,5 @@
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+<p><a href="{% url 'bots:index'%}">Return to List of All Robots</a>

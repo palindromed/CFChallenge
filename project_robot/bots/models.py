@@ -1,4 +1,4 @@
-#from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -12,5 +12,5 @@ class Robot(models.Model):
     def __str__(self):
         return self.name
 
-    #def get_absolute_url(self):
-        #return reverse('robot-detail', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('robot_detail', kwargs={'pk': self.pk})
