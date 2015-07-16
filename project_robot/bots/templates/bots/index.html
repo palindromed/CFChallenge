@@ -6,18 +6,14 @@
   <body>
 
 
-  {% if robot_report %}
+
   <h1>Welcome to BattleBots!</h1>
     <ul>
-    {% for robot in robot_report %}
+
         <li><a href="{% url 'bots:detail' robot.id %}">{{ robot.name }}</a></li>
-    {% endfor %}
+
     </ul>
     <button><a href="{% url 'bots:create' %}">create a new Robot</a></button>
 
-
-  {% else %}
-    <p>No robots are available.</p>
-  {% endif %}
 </body>
 </html>
