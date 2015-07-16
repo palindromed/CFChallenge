@@ -1,1 +1,1 @@
-web: gunicorn project_robot.wsgi --log-file -
+web: gunicorn botchallenge.wsgi --log-file -
