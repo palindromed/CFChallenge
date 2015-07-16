@@ -1,1 +1,1 @@
-web: gunicorn project_robot.wsgi --pythonpath ../project_robot --log-file -
+web: gunicorn project_robot.wsgi --log-file -
