@@ -13,11 +13,12 @@
         <li><a href="{% url 'bots:detail' robot.id %}">{{ robot.name }}</a></li>
     {% endfor %}
     </ul>
-    <button><a href="{% url 'bots:create' %}"></a>Add a New Robot</button>
+
 
 
   {% else %}
     <p>No robots are available.</p>
   {% endif %}
+  <button><a href="{% url 'bots:create' %}">create a new Robot</a></button>
 </body>
 </html>
