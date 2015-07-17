@@ -8,6 +8,7 @@ from .models import Robot
 
 class HomePage(ListView):
     template_name = 'bots/index.html'
+    context_object_name = 'robot_report'
 
     def get_queryset(self):
         return Robot.objects.order_by('name')
