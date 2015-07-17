@@ -13,7 +13,8 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
+from django.conf import settings
 from django.contrib import admin
 
 urlpatterns = [
@@ -21,3 +22,9 @@ urlpatterns = [
     url(r'^bots/', include('bots.urls', namespace='bots')),
     url(r'^', include('bots.urls')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += patterns('',
+                            url(r'^__debug__/', include(debug_toolbar.urls)),
+                            )

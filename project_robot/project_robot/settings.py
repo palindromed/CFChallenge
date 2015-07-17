@@ -25,6 +25,8 @@ SECRET_KEY = '^k&3)t!gi)@rfwb@n8+^4h!u%6a)v8t43fz9%4u7@eu08@6rnh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
 ALLOWED_HOSTS = []
 
 
