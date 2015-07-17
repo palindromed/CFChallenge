@@ -10,7 +10,7 @@
   <h1>Welcome to BattleBots!</h1>
     <ul>
 
-        <li><a href=>{{ robot.name }}</a></li>
+        <li><a href="{% url 'bots:detail' robot.id %}">{{ robot.name }}</a></li>
 
     </ul>
     <button><a href="{% url 'bots:create' %}">create a new Robot</a></button>
